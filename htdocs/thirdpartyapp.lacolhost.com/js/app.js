@@ -18,16 +18,8 @@ module.factory('login', function($q, $rootScope) {
         });
     keycloakAuth.ready = deferred.promise
         .then(function() {
-            if (keycloakAuth.authenticated) {
-                keycloakAuth.loadUserProfile()
-                    .success(function() {
-                        console.log('User profile loaded');
-                        $rootScope.$digest();
-                    })
-                    .error(function(err) {
-                        console.log('Error loading user profile', err);
-                    })
-            }
+            console.log('Success');
+            $rootScope.$digest();
         })
         .finally(function() {
             console.log('Finally');
